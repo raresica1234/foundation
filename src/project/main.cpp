@@ -28,7 +28,7 @@ static char s_platformString[] = "Unknown System";
 
 void Main()
 {
-	Print("Hello, %s!", s_platformString);
+	Print("Hello, %s!\n", s_platformString);
 }
 
 /* Per-platform entry function */

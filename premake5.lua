@@ -25,10 +25,11 @@ workspace("Workspace")
 		"Debug", "Release"
 	}
 
-project  ("Project")
-kind     ("WindowedApp")
+project    ("Project")
+kind       ("ConsoleApp")
 base_config()
-warnings ("Extra")
+cppdialect ("C++11")
+warnings   ("Extra")
 files {
 	"src/project/**.cpp",
 	"src/project/**.h",
