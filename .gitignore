@@ -1,8 +1,12 @@
+.build-*/
+.codelite/
 .vs/
 build/
 
 *.sln
 *.xcworkspace
+*.workspace
 
+Makefile
 premake5.exe
 premake5
