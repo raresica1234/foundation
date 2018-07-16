@@ -11,14 +11,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault"
-        android:name="com.gaztin.application.MainApplication">
+        android:name=".MainApplication">
 
         <uses-library
             android:name="com.google.android.wearable"
             android:required="false" />
 
         <activity
-            android:name="com.gaztin.application.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.DeviceDefault.Light">
 

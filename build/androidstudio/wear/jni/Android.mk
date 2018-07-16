@@ -22,6 +22,7 @@ LOCAL_MODULE           := project
 LOCAL_SRC_FILES        := $(call rwildcard, $(LOCAL_PATH)/../../../../src/project/, *.cpp)
 LOCAL_LDLIBS           := -llog -landroid
 LOCAL_CPPFLAGS         := -std=c++11
+LOCAL_C_INCLUDES       := $(LOCAL_PATH)/../../../../src/
 LOCAL_STATIC_LIBRARIES := static_library android_native_app_glue
 LOCAL_SHARED_LIBRARIES := shared_library
 
