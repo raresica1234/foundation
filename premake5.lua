@@ -14,25 +14,42 @@ local function get_platforms()
 end
 
 local function base_config()
-	location  ("build/%{_ACTION}/")
-	objdir    ("build/%{_ACTION}/%{cfg.platform}/%{cfg.buildcfg}/")
-	targetdir ("build/%{_ACTION}/%{cfg.platform}/%{cfg.buildcfg}/")
+	location   ("build/%{_ACTION}/")
+	objdir     ("build/%{_ACTION}/%{cfg.platform}/%{cfg.buildcfg}/")
+	targetdir  ("build/%{_ACTION}/%{cfg.platform}/%{cfg.buildcfg}/")
+	cppdialect ("C++11")
+	warnings   ("Extra")
 end
 
-workspace("Workspace")
-	platforms (get_platforms())
-	configurations {
-		"Debug", "Release"
-	}
+workspace      ("Workspace")
+platforms      (get_platforms())
+configurations {"Debug", "Release"}
 
-project  ("Project")
-kind     ("WindowedApp")
+project     ("LibraryStatic")
+kind        ("StaticLib")
+includedirs {"src/"}
 base_config()
-warnings ("Extra")
+files {
+	"src/library/static/**.cpp",
+	"src/library/static/**.h",
+}
+
+project     ("LibraryShared")
+kind        ("SharedLib")
+defines     {"SHARED_LIB"}
+includedirs {"src/"}
+base_config()
+files {
+	"src/library/shared/**.cpp",
+	"src/library/shared/**.h",
+}
+
+project     ("Project")
+kind        ("ConsoleApp")
+includedirs {"src/"}
+links       {"LibraryStatic", "LibraryShared"}
+base_config()
 files {
 	"src/project/**.cpp",
 	"src/project/**.h",
-}
-includedirs {
-	"src/project/",
 }

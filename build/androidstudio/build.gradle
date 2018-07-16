@@ -1,4 +1,4 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import org.apache.tools.ant.taskdefs.condition.Os
 
 buildscript {
     repositories {
@@ -14,5 +14,9 @@ allprojects {
     repositories {
         jcenter()
         google()
+    }
+    // Fix gradle file paths exceeding the character limit on Windows
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        buildDir "C:/Temp/"
     }
 }

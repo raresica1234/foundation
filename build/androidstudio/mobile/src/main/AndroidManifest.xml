@@ -10,15 +10,17 @@
         android:supportsRtl="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:name="com.gaztin.application.MainApplication">
+        android:theme="@android:style/Theme.DeviceDefault"
+        android:name=".MainApplication">
 
-        <activity android:name="com.gaztin.application.MainActivity"
+        <activity android:name=".MainActivity"
                   android:label="@string/app_name"
-                  android:configChanges="orientation|keyboardHidden">
+                  android:configChanges="orientation|keyboardHidden"
+                  android:theme="@android:style/Theme.DeviceDefault.Light">
 
             <meta-data android:name="android.app.lib_name"
                        android:value="project" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

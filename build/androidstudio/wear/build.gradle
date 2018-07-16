@@ -17,8 +17,10 @@ android {
     }
     buildTypes {
         debug {
+            debuggable true
         }
         release {
+            debuggable false
         }
     }
 }
@@ -27,5 +29,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.google.android.support:wearable:2.0.5'
     implementation 'com.google.android.gms:play-services-wearable:11.0.4'
-    compileOnly 'com.google.android.wearable:wearable:1.0.0'
+    compileOnly 'com.google.android.wearable:wearable:2.0.5'
 }
