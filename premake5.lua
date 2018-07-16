@@ -43,6 +43,13 @@ local function base_config()
 	sysincludedirs {"src/"}
 	cppdialect     ("C++11")
 	warnings       ("Extra")
+	filter{"configurations:Debug"}
+	optimize       ("Off")
+	symbols        ("On")
+	filter{"configurations:Release"}
+	optimize       ("Full")
+	symbols        ("Off")
+	filter{}
 end
 
 workspace      ("Workspace")
