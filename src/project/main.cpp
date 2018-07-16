@@ -1,7 +1,11 @@
-#ifdef __ANDROID__
+#include <library/static/static_object.h>
+#include <library/shared/shared_object.h>
+#include <cstdio>
+
+#ifdef _WIN32
+#include <windows.h>
+#elif __ANDROID__
 #include <android/log.h>
-#else
-#include <stdio.h>
 #endif
 
 template<typename... Args>
@@ -29,18 +33,25 @@ static char s_platformString[] = "Unknown System";
 void Main()
 {
 	Print("Hello, %s!\n", s_platformString);
+
+	// Static object
+	StaticObject staticObject;
+	std::printf("Static object: ");
+	staticObject.read(stdin);
+	staticObject.write(stdout);
+	std::printf("\n");
+
+	// Shared object
+	SharedObject sharedObject;
+	std::printf("Shared object: ");
+	sharedObject.read(stdin);
+	sharedObject.write(stdout);
+	std::printf("\n");
 }
 
 /* Per-platform entry function */
 
-#ifdef _WIN32
-#include <windows.h>
-int WINAPI WinMain(HINSTANCE /*instance*/, HINSTANCE /*prevInstance*/, LPSTR /*cmdLine*/, int /*showCmd*/)
-{
-	Main();
-	return 0;
-}
-#elif __ANDROID__
+#ifdef __ANDROID__
 #include <android_native_app_glue.h>
 void android_main(struct android_app* /*state*/)
 {
