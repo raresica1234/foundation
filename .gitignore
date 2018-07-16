@@ -2,5 +2,7 @@
 build/
 
 *.sln
+*.xcworkspace
 
 premake5.exe
+premake5
