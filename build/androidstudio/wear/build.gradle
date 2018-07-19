@@ -23,6 +23,11 @@ android {
             debuggable false
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs = ["src/main/res", "../../../res"]
+        }
+    }
 }
 
 dependencies {

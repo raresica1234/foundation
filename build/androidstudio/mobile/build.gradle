@@ -15,6 +15,11 @@ android {
             debuggable false
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs = ["src/main/res", "../../../res"]
+        }
+    }
     externalNativeBuild {
         ndkBuild {
             path "jni/Android.mk"
