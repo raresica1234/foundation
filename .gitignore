@@ -1,7 +1,8 @@
 .build-*/
 .codelite/
 .vs/
-build/
+build/*/
+!build/androidstudio/
 
 *.sln
 *.xcworkspace
