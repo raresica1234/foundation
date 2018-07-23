@@ -1,9 +1,13 @@
 .build-*/
 .codelite/
+.externalNativeBuild/
+.gradle/
+.idea/
 .vs/
 build/*/
 !build/androidstudio/
 
+*.iml
 *.sln
 *.xcworkspace
 *.workspace
